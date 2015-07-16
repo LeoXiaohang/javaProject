@@ -13,7 +13,7 @@
   <title>添加新用户</title>
 </head>
 <body>
-<form method="POST" action="/add" name="addPerson">
+<form method="POST" action="/web/add" name="addPerson">
 
   <%--编号 : <input type="hidden" name="id" value="<c:out value="${person.id}" />"/> <br/>--%>
   姓名 : <input type="text" name="name" value="<c:out value="${person.name}" />"/> <br/>

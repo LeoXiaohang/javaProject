@@ -2,7 +2,9 @@ apply plugin: 'jetty'
 
 dependencies {
     compile project(':core')
-    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'jstl:jstl:1.2'
+//    compile 'com.googlecode.flyway:flyway-core:2.3.1'
 
     testCompile 'junit:junit:4.10'
 }
@@ -11,10 +13,25 @@ buildscript {
     repositories {
         mavenCentral()
     }
+
+    dependencies {
+        classpath "org.flywaydb:flyway-gradle-plugin:3.2.1"
+    }
+
+}
+apply plugin: 'org.flywaydb.flyway'
+
+
+flyway {
+
+    url = 'jdbc:mysql://127.0.0.1:3306/information'
+    user = 'root'
+    password = ''
 }
 
-jar {
-    baseName = 'user-management'
-    version =  '0.1.0'
-}
+
+//jar {
+//    baseName = 'user-management'
+//    version =  '0.1.0'
+//}
 

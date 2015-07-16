@@ -1,38 +1,28 @@
 package com.tw.web;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.util.List;
 import javax.servlet.http.*;
 import javax.servlet.*;
 
-import com.tw.core.Connector;
-import com.tw.core.Service;
+import com.tw.core.dao.PersonDao;
+import com.tw.core.entity.Person;
 
 public class HelloServlet extends HttpServlet {
-    public void doGet (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
-        try{
-            Class.forName("Constant.Driver");
-            Connection conn = DriverManager(url, root, pswd);
-            Statement stmt = conn.createStatement();
-
-            ResultSet rs = stmt.executeQuery("select * from person");
-            while(rs.next()){
-              System.out.println(rs.getString(1)+" "+rs.getString(2)+" "+rs.getString(3)+" "+rs.getInt(4));
-            }
-            rs.close();
-            stmt.close();
-          }catch(Exception e){
-            e.printStackTrace();
-  }
-
-        PrintWriter out ;
-        out.println("<h1>sfsdfsdM</h1>");
-
-        jsp
-
+    public void doGet (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
+//        res.setContentType("text/html;charset=utf-8");
+//        PrintWriter out = res.getWriter();
+//        List<entity> persons = new ArrayList<entity>();
+        PersonDao user = new PersonDao();
+        List<Person> persons = user.getAllPerson();
+        req.setAttribute("persons", persons);
+//        for (entity person: persons) {
+//            out.println(person.name+" "+person.sex+" "+person.email+" "+person.sex);
+//        }
+        req.getRequestDispatcher("/index.jsp").forward(req, res);
+//        for(int i=0; i < persons.size(); i++){
+//            out.printf(persons.get(i).name+""+persons.get(i).sex+""+persons.get(i).email+""+persons.get(i).age+"<br>");
+//        }
+//        out.close();
     }
 }

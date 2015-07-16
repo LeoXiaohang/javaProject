@@ -1,3 +1,4 @@
+<%--import java.lang.string;--%>
 <%--
   Created by IntelliJ IDEA.
   User: xiaohang
@@ -8,9 +9,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title></title>
+  <title>登录成功</title>
 </head>
 <body>
 
+<%
+  request.setCharacterEncoding("GB18030");
+  String name = request.getParameter("userName");
+  out.println("欢迎你:" + name);
+//  System.out.println("欢迎你:" + name);
+%>
 </body>
 </html>
