@@ -1,11 +1,10 @@
-package com.tw.core.controll;
+package com.tw.core.controller;
 
 import com.tw.core.service.Dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.CookieValue;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -40,4 +39,12 @@ public class LoginController {
             return new ModelAndView("login");
         }
     }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public ModelAndView userLogout(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();
+        session.setAttribute("isLogin", "no");
+        return new ModelAndView("login");
+    }
+
 }

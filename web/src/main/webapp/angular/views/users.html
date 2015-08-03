@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>addPerson</title>
-</head>
-<body>
+<!--id="content"-->
 <div id="content">
-    <div class="col-md-10">
-        <!--Body content-->
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>用户名</th>
 
-        <ul class="phones">
-            <li ng-repeat="person in persons" class="thumbnail">
-                <a href="#/phones/{{phone.id}}" class="thumb">img<img ng-src="{{phone.imageUrl}}"></a>
-                <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
-                <p>{{phone.snippet}}</p>
-            </li>
-        </ul>
+        </tr>
+        <tr ng-repeat="person in persons">
+            <td>{{perosn.id}}</td>
+            <td>{{person.userName}}</td>
+            <td>
+                <button ng-click="remove(person.id)">Remove</button>
+            </td>
+        </tr>
+    </table>
 
-    </div>
+
     <!--<form method="POST" action="/web/add" name="addPerson">-->
         <!--<br/><br/><br/><br/><br/>-->
         <!--<p>姓名 :<input type="text" name="name" value="<c:out value="${name}" />"/></p>-->
@@ -31,5 +29,3 @@
         <!--<input type="submit" value="提交"/>-->
     <!--</form>-->
 </div>
-</body>
-</html>

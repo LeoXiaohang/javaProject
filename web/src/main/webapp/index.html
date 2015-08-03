@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" >
+<!--ng-app="javaProjectApp"-->
+<head >
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="lib/css/subject.css"/>
+
+
+
+
+</head>
+<body ng-app="javaProjectApp">
+<div id="header">
+    <h1>健身房管理系统</h1>
+</div>
+
+<div id="menu" align="center">
+    <a ng-href="#/users">首页</a><br><br>
+    <a ng-href="#/add">添加用户</a><br><br>
+    <a ng-href="#/subject">显示全部课表</a><br><br>
+    <a ng-href="#/printAllCustomer">显示全部顾客</a><br><br>
+    <a ng-href="#/logout">退出登录</a><br><br>
+</div>
+
+<div ng-view></div>
+
+<div id="footer">Copyright www.localhost:8080/web/hello</div>
+
+<script src="lib/js/jquery-1.11.1.min.js"></script>
+<script src="lib/js/bootstrap.min.js"></script>
+<script src="lib/js/angular.min.js"></script>
+<script src="lib/js/angular-route.min.js"></script>
+<script src="angular/controllers/app.js"></script>
+<script src="angular/controllers/UserController.js"></script>
+
+
+</body>
+</html>
